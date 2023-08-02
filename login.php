@@ -1,5 +1,5 @@
 <?php require "./includes/header.php" ?>
-  
+<?php require "./includes/navbar.php" ?>
 <section class="login_form">
   <div>
     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
