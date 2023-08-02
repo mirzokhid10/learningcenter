@@ -1,4 +1,5 @@
 <?php 
+session_start();
 $host = "localhost";
 $user = "root";
 $password = "";
@@ -11,19 +12,20 @@ if ($data === false) {
 }
 
 if(isset($_POST["apply"])) {
-  $firstname = $_POST["firstname"];
-  $lastname = $_POST["lastname"];
-  $email = $_POST["email"];
-  $phone = $_POST["phone"];
-  $message = $_POST["message"];
+  $data_name = $_POST["firstname"];
+  $data_lsname = $_POST["lastname"];
+  $data_email = $_POST["email"];
+  $data_phone = $_POST["phone"];
+  $data_message = $_POST["message"];
 
-  $sql = "INSERT INTO addmission (firstname, lastname, email, phone, message) 
-  VALUES ('$firstname', '$lastname', '$email', '$phone', '$message')";
+  $sql = "insert into addmission (firstname, lastname, email, phone, message) 
+  values ('$data_name', '$data_lsname', '$data_email', '$data_phone', '$data_message')";
 
   $result = mysqli_query($data, $sql);
 
   if($result) {
-    echo "Apply successfully";
+    $_SESSION["message"] = "Your message has been sent successfully";
+    header("Location:index.php");
   }else {
     echo "Apply failed";
   }

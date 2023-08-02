@@ -63,5 +63,5 @@ if(!isset($_SESSION['username'])) {
 
 
 <?php 
-  require "./includes/foooter.php";
+  require "./includes/footer.php";
 ?>
